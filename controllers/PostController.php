@@ -31,11 +31,15 @@ class PostController extends AppController
             return 'test';
         }
 
+        $this->view->title = "Все статьи";
         return $this->render("index");
     }
 
     public function actionShow(){
         // $this->layout = "basic"; // шаблон только для определенных страниц
+        $this->view->title = "Детальный просомтр";
+        $this->view->registerMetaTag(['name'=>'keywords', 'content'=>'ключевые слова']);
+        $this->view->registerMetaTag(['name'=>'description', 'content'=>'описание страницы']);
         return $this->render("show");
     }
 }
