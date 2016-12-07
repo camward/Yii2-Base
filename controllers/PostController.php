@@ -8,6 +8,8 @@
 
 namespace app\controllers;
 
+use Yii;
+
 class PostController extends AppController
 {
 
@@ -23,6 +25,12 @@ class PostController extends AppController
     }
 
     public function actionIndex(){
+
+        if(Yii::$app->request->isAjax){
+            debug($_GET);
+            return 'test';
+        }
+
         return $this->render("index");
     }
 
