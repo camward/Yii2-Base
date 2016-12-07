@@ -11,7 +11,7 @@ namespace app\controllers;
 class PostController extends AppController
 {
 
-    // public $layout = "basic"; // шаблон только для контроллера Post
+    public $layout = "basic"; // шаблон только для контроллера Post
 
     public function actionTest(){
         $names = ["Alex", "Nico", "Johny"];
@@ -27,7 +27,7 @@ class PostController extends AppController
     }
 
     public function actionShow(){
-        $this->layout = "basic"; // шаблон только для определенных страниц
+        // $this->layout = "basic"; // шаблон только для определенных страниц
         return $this->render("show");
     }
 }

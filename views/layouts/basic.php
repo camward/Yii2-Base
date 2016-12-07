@@ -1,5 +1,7 @@
 <?php
 use app\assets\AppAsset;
+use yii\helpers\Html;
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -14,8 +16,17 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<h1>Basic Template</h1>
-<?=$content;?>
+<div class="wrap">
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li class="active"><?=Html::a('Главная', '/web/');?></li>
+            <li><?=Html::a('Все статьи', ['post/index']);?></li>
+            <li><?=Html::a('Детальный просмотр', ['post/show']);?></li>
+        </ul>
+
+        <?=$content;?>
+    </div>
+</div>
 
 <?php $this->endBody() ?>
 </body>
