@@ -25,6 +25,10 @@ AppAsset::register($this);
             <li><?=Html::a('Детальный просмотр', ['post/show']);?></li>
         </ul>
 
+        <?if(isset($this->blocks['block1'])):?>
+            <?echo $this->blocks['block1'];?>
+        <?endif;?>
+
         <?=$content;?>
     </div>
 </div>

@@ -7,6 +7,9 @@
 
 <?//$this->registerJsFile('@web/js/script.js', ['depends' => 'yii\web\YiiAsset']);?>
 
+<?$this->beginBlock('block1');?>
+    <h3>Блок из view</h3>
+<?$this->endBlock();?>
 
 <?
 $js = <<<JS
