@@ -41,7 +41,7 @@ class TestForm extends Model
     // свой валидатор (сработает на серверной стороне)
     public function myRule($attrs){
         if(!in_array($this->$attrs, ['alex', 'nico', 'mary'])){
-            $this->addError($attrs, 'Wrong!');
+            $this->addError($attrs, 'Значение должно быть alex, nico, или mary');
         }
     }
 }
