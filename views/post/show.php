@@ -29,3 +29,11 @@ $js = <<<JS
 JS;
 $this->registerJs($js);
 ?>
+
+<?
+foreach($cats as $cat){
+    echo $cat->title."<br />";
+}
+
+//\app\controllers\debug($cats);
+?>

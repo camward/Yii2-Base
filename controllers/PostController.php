@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 
+use app\models\Category;
 use Yii;
 use app\models\TestForm;
 
@@ -54,6 +55,21 @@ class PostController extends AppController
         $this->view->title = "Детальный просомтр";
         $this->view->registerMetaTag(['name'=>'keywords', 'content'=>'ключевые слова']);
         $this->view->registerMetaTag(['name'=>'description', 'content'=>'описание страницы']);
-        return $this->render("show");
+
+        // $cats = Category::find()->all(); // все
+        // $cats = Category::find()->orderBy(['title'=>SORT_DESC])->all(); // все с сортировкой
+        // $cats = Category::find()->asArray()->all(); // вывыдит массив, а не объект
+        // $cats = Category::find()->where('parent=691')->all(); // условие WHERE как строка
+        // $cats = Category::find()->where(['parent' => 691])->all(); // условие WHERE как массив
+        // $cats = Category::find()->where(['like', 'title', 'pp'])->all(); // условие WHERE с использованием LIKE
+        // $cats = Category::find()->where('parent=691')->limit(1)->all(); // условие WHERE с использованием LIMIT
+        // $cats = Category::find()->where('parent=691')->limit(1)->one(); // one всегда выводит 1-у запись, но выбирает все! чтобы не было избыточности добавляем  limit(1)
+        // $cats = Category::find()->where('parent=691')->count(); // условие WHERE с использованием COUNT
+
+        // свой запрос
+        $query = "SELECT * FROM categories WHERE title LIKE :search";
+        $cats = Category::findBySql($query, [':search' => '%pp%'])->all();
+
+        return $this->render("show", compact('cats'));
     }
 }
