@@ -31,9 +31,21 @@ $this->registerJs($js);
 ?>
 
 <?
-foreach($cats as $cat){
-    echo $cat->title."<br />";
-}
+//foreach($cats as $cat){
+//    echo $cat->title."<br />";
+//}
 
-//\app\controllers\debug($cats);
+foreach($cats as $cat){
+    echo "<ul>";
+        echo "<li>".$cat->title."</li>";
+
+        $products = $cat->products23; // products23 берется из модели Category из названия метода getProducts23
+        foreach($products as $prod){
+            echo "<ul>";
+                echo "<li>".$prod->title."</li>";
+            echo "</ul>";
+        }
+
+    echo "</ul>";
+}
 ?>

@@ -67,8 +67,11 @@ class PostController extends AppController
         // $cats = Category::find()->where('parent=691')->count(); // условие WHERE с использованием COUNT
 
         // свой запрос
-        $query = "SELECT * FROM categories WHERE title LIKE :search";
-        $cats = Category::findBySql($query, [':search' => '%pp%'])->all();
+        // $query = "SELECT * FROM categories WHERE title LIKE :search";
+        // $cats = Category::findBySql($query, [':search' => '%pp%'])->all();
+
+        // $cats = Category::find()->all(); // ленивая загрузка (связанные данные появятся только после 1-го обращения к ним)
+        $cats = Category::find()->with('products23')->all(); // жадная загрузка (связанные данные появятся сразу)
 
         return $this->render("show", compact('cats'));
     }

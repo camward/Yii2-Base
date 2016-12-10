@@ -18,4 +18,10 @@ class Category extends ActiveRecord
     public static function tableName(){
         return 'categories';
     }
+
+
+    // связь "один ко многим". parent из Product = id из Category
+    public function getProducts23(){
+        return $this->hasMany(Product::className(), ['parent' => 'id']);
+    }
 }
