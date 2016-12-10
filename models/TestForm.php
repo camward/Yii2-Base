@@ -8,14 +8,10 @@
 
 namespace app\models;
 
-use yii\base\Model;
+use yii\db\ActiveRecord;
 
-class TestForm extends Model
+class TestForm extends ActiveRecord
 {
-    public $name;
-    public $email;
-    public $text;
-
     public function attributeLabels()
     {
         return [
@@ -28,14 +24,19 @@ class TestForm extends Model
     public function rules()
     {
         return [
-            [['name', 'email'], 'required', 'message' => 'Поле обязательно'],
-            ['text', 'required'],
-            ['text', 'trim'],
-            ['email', 'email'],
-            ['name', 'string', 'min'=>2, 'tooShort' => 'Мало символов'],
-            ['text', 'string', 'length' => [2,999]],
-            ['name', 'myRule']
+//            [['name', 'email'], 'required', 'message' => 'Поле обязательно'],
+//            ['text', 'required'],
+//            ['text', 'trim'],
+//            ['email', 'email'],
+//            ['name', 'string', 'min'=>2, 'tooShort' => 'Мало символов'],
+//            ['text', 'string', 'length' => [2,999]],
+//            ['name', 'myRule']
+            [['name', 'email', 'text'], 'safe']
         ];
+    }
+
+    public static function tableName(){
+        return 'posts';
     }
 
     // свой валидатор (сработает на серверной стороне)
