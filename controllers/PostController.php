@@ -33,6 +33,12 @@ class PostController extends AppController
             return 'test';
         }
 
+        $post = TestForm::findOne(3);
+        $post->email = '2@2.ru';
+        $post->save();
+        // $post->delete();
+
+        // TestForm::deleteAll(['>', 'id', 3]); // удалить все записи с id > 3
 
         $model = new TestForm();
         if($model->load(Yii::$app->request->post())){
