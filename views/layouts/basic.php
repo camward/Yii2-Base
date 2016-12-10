@@ -20,7 +20,7 @@ AppAsset::register($this);
 <div class="wrap">
     <div class="container">
         <ul class="nav nav-pills">
-            <li class="active"><?=Html::a('Главная', '/web/');?></li>
+            <li class="active"><?=Html::a('Главная', '/');?></li>
             <li><?=Html::a('Все статьи', ['post/index']);?></li>
             <li><?=Html::a('Детальный просмотр', ['post/show']);?></li>
         </ul>
