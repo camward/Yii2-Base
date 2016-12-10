@@ -1,9 +1,12 @@
 <?
 use app\components\MyWidget;
 
-echo MyWidget::widget(['name' => 'Alex']);
+// echo MyWidget::widget(['name' => 'Alex']);
 ?>
 
+<?MyWidget::begin()?>
+    <h1>my content</h1>
+<?MyWidget::end()?>
 
 <h2>Show</h2>
 
