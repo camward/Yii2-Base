@@ -1,3 +1,10 @@
+<?
+use app\components\MyWidget;
+
+echo MyWidget::widget(['name' => 'Alex']);
+?>
+
+
 <h2>Show</h2>
 
 <button class="btn btn-success" id="el">Отправить запрос</button><br /><br />
